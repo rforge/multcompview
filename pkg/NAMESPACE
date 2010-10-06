@@ -1,0 +1,8 @@
+export(multcompLetters, multcompTs,
+       multcompBoxplot, vec2mat, vec2mat2)
+
+importFrom(graphics, plot)
+
+S3method(plot, multcompLetters)
+S3method(plot, multcompTs)
+S3method(print, multcompLetters)
