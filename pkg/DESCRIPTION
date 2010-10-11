@@ -16,5 +16,5 @@ Description: Convert a logical vector or a vector of
   friedmanmc, kruskalmc{pgirmess}.
 License: GPL
 Depends:  grid
-Suggests:  multcomp, pgirmess
+Suggests:  multcomp, pgirmess, MASS
 Packaged: Sun Aug  6 18:10:27 2006; spencerg
