@@ -140,6 +140,20 @@ data(recovery)
 # Using recovery{multcomp} data set
 multcompBoxplot(minutes~blanket, recovery)
 
+# Plotting boxes rather than letters and Ts
+
+multcompBoxplot(minutes~blanket, recovery,
+                plotList=list(
+                    boxplot=list(fig=c(0, 0.75, 0, 1), las=1,
+                        cex.axis=1.5),
+                    multcompTs=list(fig=c(0.7, 0.85, 0, 1),
+                        type='boxes'),
+                    multcompLetters=list(
+                        fig=c(0.87, 0.97, 0.03, 0.98),
+                        type='boxes') ) )
+
+####################
+
 # Vertical boxplots with both
 # multcomp Ts and Letters on the top
 multcompBoxplot(minutes~blanket, recovery,
