@@ -14,7 +14,7 @@ function(formula, data, horizontal=TRUE,
     for(i in 1:n.mc)
       if("fig" %in% names(plotList[[i]]))
         plotList[[i]]$fig <-
-          plotList[[i]]$fig[c(3,4,1,2)]                          
+          plotList[[i]]$fig[c(3,4,1,2)]
 ##
 ## 2.  Sort the levels of 'z' in the formula
 ##
@@ -35,7 +35,7 @@ function(formula, data, horizontal=TRUE,
   if("fig" %in% names(bpArgs)){
     op <- par(fig=bpArgs$fig)
     on.exit(par(op))
-    bpArgs$fig <- NULL 
+    bpArgs$fig <- NULL
   }
 #
   bpArgNames <- names(bpArgs)
@@ -47,9 +47,9 @@ function(formula, data, horizontal=TRUE,
   bpArg[[2]] <- data
   bpArg[[3]] <- horizontal
   if(nArgs.bp>0)for(i in 1:nArgs.bp)
-    bpArg[[3+i]] <- plotList$boxplot[[i]]
+    bpArg[[3+i]] <- bpArgs[[i]]
   bp <- do.call("boxplot", bpArg)
-# Create list "out" and save this.    
+# Create list "out" and save this.
   out <- vector(n.mc+1, mode="list")
   plotNames <- names(plotList)
   names(out) <- c(plotNames[1], "compFn", plotNames[-1])
@@ -57,10 +57,10 @@ function(formula, data, horizontal=TRUE,
   par(op)
 ##
 ## 4.  Call "compFn" for the other portions of the
-##     display.  
+##     display.
 ##
   Fn <- compFn
-  if(compFn=="TukeyHSD"){    
+  if(compFn=="TukeyHSD"){
     TukeyHSD. <- function(formula, data){
       TukeyHSD(aov(formula, data))[[1]][, "p adj"]
     }
@@ -71,7 +71,7 @@ function(formula, data, horizontal=TRUE,
   Fn.v0 <- vec2mat(fnValue)
   Lvls <- bp$names
   if(horizontal)Lvls <- rev(Lvls)
-  FnValue <- Fn.v0[Lvls, Lvls]  
+  FnValue <- Fn.v0[Lvls, Lvls]
   out[["compFn"]] <- fnValue
 ##
 ## 5.  Process the remaining components of plotList
@@ -85,7 +85,7 @@ function(formula, data, horizontal=TRUE,
       mcTs <- multcompTs(FnValue)
     if("multcompLetters" %in% mcNames)
       mcLtrs <- multcompLetters(FnValue)
-#   Create the desired multcompViews 
+#   Create the desired multcompViews
     for(i in 1:(n.mc-1)){
       pL.i <- plotList[[i+1]]
       {
