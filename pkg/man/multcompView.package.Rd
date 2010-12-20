@@ -36,7 +36,7 @@ License: \tab GPL\cr
   Spencer Graves and Hans-Peter Piepho with help
   from Sundar Dorai-Raj
 
-  Maintainer:  Spencer Graves <spencer.graves@pdf.com>
+  Maintainer:  Spencer Graves <spencer.graves@prodsyse.com>
 }
 \references{
   Piepho, Hans-Peter (2004) "An Algorithm for a
