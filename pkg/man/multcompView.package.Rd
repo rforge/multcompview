@@ -13,13 +13,13 @@
   for which the difference exceeded a threshold.
 }
 \details{
-\tabular{ll}{
-Package: \tab multcompView\cr
-Type: \tab Package\cr
-Version: \tab 0.1-0\cr
-Date: \tab 2006-08-06\cr
-License: \tab GPL\cr
-}
+  \tabular{ll}{
+    Package: \tab multcompView\cr
+    Type: \tab Package\cr
+    Version: \tab 0.1-0\cr
+    Date: \tab 2006-08-06\cr
+    License: \tab GPL\cr
+  }
   Convert a logical vector or a vector of
   p-values or a difference or distance matrix into
   either a letter-based display using
