@@ -59,8 +59,7 @@ multcompLetters(x, compare="<", threshold=0.05,
   }
   \item{reversed}{
   A logical value indicating whether the order of 
-  the order of the letters should be reversed. 
-  Defaults to FALSE.
+  the letters should be reversed. Defaults to FALSE.
   }
 }
 \details{
