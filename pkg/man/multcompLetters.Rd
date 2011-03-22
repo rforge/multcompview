@@ -16,7 +16,8 @@
 }
 \usage{
 multcompLetters(x, compare="<", threshold=0.05,
-                Letters=c(letters, LETTERS, "."))
+                Letters=c(letters, LETTERS, "."), 
+                reversed = FALSE)
 }
 \arguments{
   \item{x}{
@@ -55,6 +56,11 @@ multcompLetters(x, compare="<", threshold=0.05,
     generates that many distinct groups, the display
     may be too busy to be useful, but the algorithm
     shouldn't break.)
+  }
+  \item{reversed}{
+  A logical value indicating whether the order of 
+  the order of the letters should be reversed. 
+  Defaults to FALSE.
   }
 }
 \details{
@@ -161,6 +167,19 @@ x100 <- matrix(rnorm(100), ncol=5,
                dimnames=list(NULL, LETTERS[1:5]) )
 cx <- cor(x100)
 cxLtrs <- multcompLetters(abs(cx), threshold=.3)
+
+
+##
+##5. reversed
+##
+
+dif3 <- c(FALSE, FALSE, TRUE)
+names(dif3) <- c("A-B", "A-C", "B-C")
+dif3L <- multcompLetters(dif3)
+dif3L.R <- multcompLetters(dif3, rev = TRUE)
+dif3L
+dif3L.R
+
 
 }
 \keyword{ dplot }

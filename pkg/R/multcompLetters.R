@@ -1,6 +1,7 @@
 "multcompLetters" <-
 function(x, compare="<",
-   threshold=0.05, Letters=c(letters, LETTERS, ".")){
+   threshold=0.05, Letters=c(letters, LETTERS, "."),
+   reversed = FALSE){
 ##
 ## 1.  Covert to logical
 ##
@@ -129,6 +130,8 @@ function(x, compare="<",
     B
   }
   LetMat. <- sortCols(LetMat)
+### Should the letters go in the reversed order?
+  if(reversed) LetMat. <- LetMat.[ ,rev(1:ncol(LetMat.))]
 # DON'T Sweep
     #...
 ##
