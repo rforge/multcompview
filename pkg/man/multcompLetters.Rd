@@ -1,5 +1,8 @@
 \name{multcompLetters}
 \alias{multcompLetters}
+\alias{multcompLetters2}
+\alias{multcompLetters3}
+\alias{multcompLetters4}
 \title{
   Letter summary of similarities and differences
 }
@@ -18,6 +21,12 @@
 multcompLetters(x, compare="<", threshold=0.05,
                 Letters=c(letters, LETTERS, "."), 
                 reversed = FALSE)
+                
+multcompLetters2(formula, x, data, ...)
+
+multcompLetters3(z, y, x, data, ...)
+
+multcompLetters4(object, comp, ...)
 }
 \arguments{
   \item{x}{
@@ -61,12 +70,35 @@ multcompLetters(x, compare="<", threshold=0.05,
   A logical value indicating whether the order of 
   the letters should be reversed. Defaults to FALSE.
   }
+  \item{formula}{
+  The formula used to make the test (lm, aov, glm, etc.).
+  Like y ~ x.
+  }
+  \item{data}{
+  Data used to make the test.
+  }
+  \item{y}{
+  Value of the response variable.
+  }
+  \item{z}{
+  Categorical variables used in the test.
+  }
+  \item{object}{
+  An object of class aov or lm for the time being.
+  }
+  \item{comp}{
+  A object of class aov.
+  }
+  \item{...}{
+  Extra arguments passed to multcompLetters.
+  }
 }
 \details{
   Produces a "Letter-Based Representation of All-
   Pairwise Comparisons" as described by Piepho
   (2004).  (The present algorithm does NOT perform
   his "sweeping" step.)
+  \code{multcompLettersx} are wrapper of multcompLetters that will reorder the levels of the data so that the letters appear in a descending order of the mean. \code{mulcompletters3} is similar to \code{multcompletters2} except that it uses vector names to separte and the later has an formula interface. \code{multcompLetters4} will take a aov or lm object and a comparison test and will produce all the letters for the terms and interactions.
 }
 \value{
   An object of class 'multcompLetters', which is
@@ -93,13 +125,14 @@ multcompLetters(x, compare="<", threshold=0.05,
     concatonating the column names of all columns
     with TRUE in that row.
     }
+    multcompLetters4 will return a named list with the terms containing a object of class 'multcompLetters' as produced by \code{multcompLetters}.
 }
 \references{
   Piepho, Hans-Peter (2004) "An Algorithm for a Letter-Based
   Representation of All-Pairwise Comparisons", Journal of
   Computational and Graphical Statistics, 13(2)456-466.
 }
-\author{ Spencer Graves and Hans-Peter Piepho }
+\author{ Spencer Graves, Hans-Peter Piepho and Luciano Selzer}
 \seealso{
   \code{\link{multcompBoxplot}}
   \code{\link{plot.multcompLetters}}
@@ -179,6 +212,32 @@ dif3L.R <- multcompLetters(dif3, rev = TRUE)
 dif3L
 dif3L.R
 
+
+##
+##6. multcompletters2 usage
+
+experiment <- data.frame(treatments = gl(11, 20, labels = c("dtl", "ctrl", "treat1", 
+              "treat2", "treatA2", "treatB", "treatB2",
+              "treatC", "treatD", "treatA1", "treatX")),
+              y = c(rnorm(20, 10, 5), rnorm(20, 20, 5), rnorm(20, 22, 5), rnorm(20, 24, 5),
+               rnorm(20, 35, 5), rnorm(20, 37, 5), rnorm(20, 40, 5), rnorm(20, 43, 5),
+               rnorm(20, 45, 5), rnorm(20, 60, 5), rnorm(20, 60, 5)))
+exp_tukey <- TukeyHSD(exp_aov <- aov(y  ~ treatments, data = experiment))
+exp_letters1 <- multcompLetters(exp_tukey$treatments[,4])
+exp_letters1
+#Notice lowest mean treatments gets a "e"
+#Ordered letters
+multcompLetters2(y ~ treatments, exp_tukey$treatments[,"p adj"], experiment)
+multcompLetters2(y ~ treatments, exp_tukey$treatments[,"p adj"], experiment, reversed = TRUE)
+
+##7. multcompletters3 usage
+
+multcompLetters3("treatments", "y", exp_tukey$treatments[,"p adj"], experiment)
+
+##8. multcompletters4 usage
+
+
+multcompLetters4(exp_aov, exp_tukey)
 
 }
 \keyword{ dplot }
