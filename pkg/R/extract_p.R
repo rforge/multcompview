@@ -3,7 +3,9 @@
 }
 
 extract_p.default <- function(x){
-  ans <- drop(as.matrix(x[,"p adj", drop = FALSE]))
+  ans <- x[ ,"p adj"]
+  #To be sure that names are kept
+  names(ans) <- rownames(x)
   ans
 }
 
