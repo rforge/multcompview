@@ -3,9 +3,10 @@ Type: Package
 Title: Visualizations of Paired Comparisons
 Version: 0.1-3
 Date: 2006-08-06
-Author: Spencer Graves and Hans-Peter Piepho with
+Author: Spencer Graves, Hans-Peter Piepho and Luciano Selzer with
   help from Sundar Dorai-Raj
 Maintainer: Spencer Graves <spencer.graves@structuremonitoring.com>
+            Luciano Selzer <luciano.selzer@gmail.com>
 Description: Convert a logical vector or a vector of
   p-values or a correlation, difference, or distance
   matrix into a display identifying the pairs for
