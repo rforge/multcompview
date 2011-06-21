@@ -11,6 +11,10 @@ function (object, comp, ...) {
       fms[[i]] <- formula(paste(fm[1], "~", Terms[i]))
     }
     names(fms) <- Terms
+    if(is.character(comp) | is.symbol(comp)) {
+      comp <- match.fun(comp)
+      comp <- comp(object)
+    }
     comp <- extract_p(comp)
     ans <- list()
     for(i in 1:length(Terms)){

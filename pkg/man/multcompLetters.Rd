@@ -87,7 +87,8 @@ multcompLetters4(object, comp, ...)
   An object of class aov or lm for the time being.
   }
   \item{comp}{
-  A object of class aov.
+  A object with multiple comparison or a function name to perform a
+  multiple comparison.
   }
   \item{...}{
   Extra arguments passed to multcompLetters.
