@@ -14,3 +14,9 @@ extract_p.default <- function(x){
    x
 }
 
+extract_p.mc <- function(x){
+  ans <- x[["dif.com"]][, "difference"]
+  names(ans) <- rownames(x[["dif.com"]])
+  ans
+}
+

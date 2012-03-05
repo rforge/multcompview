@@ -66,6 +66,12 @@ function(formula, data, horizontal=TRUE,
     }
     Fn <- "TukeyHSD."
   }
+  if (compFn == "kruskalmc"){
+    kruskalmc. <- function(formula, data){
+      extract_p(kruskalmc(resp = formula, data = data))
+    }
+    Fn  <- "kruskalmc."
+  }
   fnValue <- do.call(Fn,
           list(formula=formula, data=data))
   Fn.v0 <- vec2mat(fnValue)

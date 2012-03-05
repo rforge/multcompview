@@ -10,3 +10,4 @@ S3method(print, multcompLetters)
 
 S3method(extract_p, default)
 S3method(extract_p, TukeyHSD)
+S3method(extract_p, mc)

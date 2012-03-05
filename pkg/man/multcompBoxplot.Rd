@@ -125,7 +125,7 @@
 }
 
 \examples{
-# Example from help("TukeyHDS")
+# Example from help("TukeyHSD")
 multcompBoxplot(breaks~tension, data=warpbreaks)
 # 'sortFn' can be either a function or a function name
 # default order is 'decreasing=TRUE'

@@ -2,22 +2,23 @@
 \alias{extract_p}
 \alias{extract_p.default}
 \alias{extract_p.TukeyHSD}
+\alias{extract_p.mc}
 \title{
  Extracts p-values
 }
 \description{
- For a given object it will look for the column named "p adj" and extract its value mantaining its names
+ For a given object it will look for the column named "p adj" or "difference" and extract its value mantaining its names
 }
 \usage{
   extract_p(x)
 }
 \arguments{
   \item{x}{
-  A object that has p-values.
+  A object that has p-values or logical values.
   }
 }
 \value{
- A named vector with p-values
+ A named vector with p-values or logical values.
 }
 \author{ Luciano Selzer  }
 \seealso{
@@ -34,6 +35,9 @@ experiment <- data.frame(treatments = gl(11, 20, labels = c("dtl", "ctrl", "trea
 exp_tukey <- TukeyHSD(exp_aov <- aov(y  ~ treatments, data = experiment))
 
 extract_p(exp_tukey)
+
+require(pgirmess)
+extract_p(kruskalmc(y ~ treatments, data = experiment))
 
 }
 \keyword{ manip }
