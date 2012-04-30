@@ -87,6 +87,11 @@
   (eds) Recent Developments in Multiple Comparison
   Procedures (Institute of Mathematical Statistics
   Lecture Notes-Monograph Series vol. 47)
+
+  Spencer Graves and Hans-Peter Piepho (2006) "Simple
+  Visualizations of Paired Comparisons",
+  \url{dir(system.file('doc', package='multcompView'),
+    pattern='\\.pdf$', full.name=TRUE)}
 }
 \author{ Spencer Graves and Hans-Peter Piepho }
 \seealso{
@@ -97,6 +102,12 @@
   \code{\link{dist}}
 }
 \examples{
+##
+## 0.  Conference presentation comparing Ts and Letters
+##
+dir(system.file('doc', package='multcompView'),
+    pattern='\\.pdf$', full.name=TRUE)
+
 ##
 ## 1.  logical vector indicating different pairs
 ##
