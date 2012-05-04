@@ -106,7 +106,7 @@
 ## 0.  Conference presentation comparing Ts and Letters
 ##
 dir(system.file('doc', package='multcompView'),
-    pattern='\\.pdf$', full.name=TRUE)
+    pattern='\\\\.pdf$', full.name=TRUE)
 
 ##
 ## 1.  logical vector indicating different pairs
