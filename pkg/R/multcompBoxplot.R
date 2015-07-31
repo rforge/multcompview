@@ -58,6 +58,7 @@
 #' \code{\link{TukeyHSD}} \code{\link{par}} \code{\link[grid]{gpar}}
 #' @keywords aplot
 #' @importFrom stats TukeyHSD aov model.frame terms
+#' @importFrom graphics plot
 #' @examples
 #' 
 #' # Example from help("TukeyHSD")
