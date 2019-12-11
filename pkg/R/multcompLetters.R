@@ -179,7 +179,7 @@ function(x, compare="<",
 ## 1.  Covert to logical
 ##
   x.is <- deparse(substitute(x))
-  if(class(x)=="dist")x <- as.matrix(x)  
+  if(any(class(x)=="dist"))x <- as.matrix(x)  
   if(!is.logical(x))
     x <- do.call(compare, list(x, threshold))
 ##
@@ -381,7 +381,8 @@ function(x, compare="<",
   }
 
 #' @export
-#' @describeIn multcompLetters
+#' @describeIn multcompLetters create a compact letters display and order the 
+#' letters
 "multcompLetters3" <- 
   function (z, y , x, data, ...) {
     y.z  <- tapply(data[, y], data[, z], 
@@ -398,7 +399,7 @@ function(x, compare="<",
     multcompLetters(value, ...)
   }
 #' @export
-#' @describeIn multcompLetters
+#' @describeIn multcompLetters create a compact letters display using a aov object
 #' 
 "multcompLetters4" <- 
   function (object, comp, ...) {

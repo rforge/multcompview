@@ -49,8 +49,8 @@
 #' 47)
 #' 
 #' Spencer Graves and Hans-Peter Piepho (2006) "Simple Visualizations of Paired
-#' Comparisons", \url{dir(system.file('doc', package='multcompView'),
-#' pattern='\.pdf$', full.name=TRUE)}
+#' Comparisons", \Sexpr{2 + 2}
+#' 
 #' @keywords dplot
 #' @export
 #' @examples
@@ -121,7 +121,7 @@ function(x, compare="<",
 ##
 ## 1.  Covert to logical
 ##
-  if(class(x)=="dist")x <- as.matrix(x)
+  if(any(class(x) == "dist"))x <- as.matrix(x)
   if(!is.logical(x))
     x <- do.call(compare, list(x, threshold))
 ##
